@@ -1,3 +1,32 @@
+# 🏥 Healthcare Tracker — React Frontend
+
+A clean, responsive React frontend for the **Healthcare Tracking System** backend (Node.js + Express + MongoDB).  
+This frontend lets **patients** track daily wellness goals and **providers** review patient progress.  
+Built to be modular, secure (JWT + refresh tokens), and easy to extend.
+
+---
+
+## 🔥 Highlights
+
+- Login / Register (patient & provider)
+- Token-based authentication with access + refresh tokens
+- Patient dashboard: steps, sleep, water logs
+- CRUD operations for daily goals
+- Provider dashboard: list patients, view dashboards, mark evaluations
+- Fully responsive UI 
+
+---
+
+## 🧰 Tech Stack
+
+- **React 18+**
+- **React Router**
+- **Axios**
+- **Tailwind CSS**
+
+
+
+
 # 🔒 Healthcare Tracking System – Backend (Node.js + Express + MongoDB)
 
 A secure and modular backend built using Node.js, Express, MongoDB, JWT Authentication, and Mongoose.  
@@ -164,4 +193,8 @@ src/services/goal.service.js
 Features:
 - CRUD for goals
 - Provider evaluation
+
+
+
+
 
