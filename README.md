@@ -1,6 +1,6 @@
 # 🔒 Healthcare Compliance Tracking System – Backend (Node.js + Express + MongoDB)
 
-A secure and modular backend built using *Node.js, **Express, **MongoDB, **JWT Authentication, and **Mongoose*.  
+A secure and modular backend built using Node.js, Express, MongoDB, JWT Authentication, and Mongoose.  
 This backend powers a healthcare system where *patients* can track daily wellness goals, and *providers* can monitor patient progress and compliance.
 
 
