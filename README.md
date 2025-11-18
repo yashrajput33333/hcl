@@ -8,7 +8,6 @@ A secure and scalable **Node.js + Express + MongoDB** backend for managing patie
 - **MongoDB + Mongoose**
 - **JWT Authentication**
 - **Bcrypt Password Hashing**
-- **Winston / Morgan Logging**
 - **Multer (Profile Picture Uploads)**
 
 ---
