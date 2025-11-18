@@ -1,52 +1,167 @@
-# 🌿 Healthcare Compliance Tracking System — Backend  
-A secure and scalable **Node.js + Express + MongoDB** backend for managing patient wellness goals, compliance tracking, provider dashboards, reminders, and profile management.
+# 🔒 Healthcare Compliance Tracking System – Backend (Node.js + Express + MongoDB)
 
----
-
-## 🚀 Tech Stack
-- **Node.js + Express.js**
-- **MongoDB + Mongoose**
-- **JWT Authentication**
-- **Bcrypt Password Hashing**
-- **Multer (Profile Picture Uploads)**
-
----
-
-## 📁 Folder Structure
+A secure and modular backend built using *Node.js, **Express, **MongoDB, **JWT Authentication, and **Mongoose*.  
+This backend powers a healthcare system where *patients* can track daily wellness goals, and *providers* can monitor patient progress and compliance.
 
 
----
 
-## 🔐 Authentication Features
-✔ User Registration (Patient & Provider)  
-✔ JWT-based Login  
-✔ Password Hashing using bcrypt  
-✔ Role-based Access Control  
-✔ Consent Required During Signup  
+# 🚀 Features
 
----
+## 👤 User & Auth Module
+- User registration (patient / provider)
+- Login with JWT access token + refresh token
+- Logout (invalidates refresh token)
+- Role-based authorization
+- Password hashing using bcrypt
 
-## 🧑‍⚕️ Patient Features
+## 🧑‍⚕ Patient Module
 - View & update profile  
-- Track wellness goals (steps, sleep, water intake)  
-- Log daily goals  
-- View preventive care reminders  
-- See dashboard insights  
-- Daily health tip  
+- Log wellness goals:
+  - Steps  
+  - Sleep hours  
+  - Water intake  
+
+- Get "Health Tip of the Day" (generated using Gemini)
+
+## 👨‍⚕ Provider Module
+- View list of patients  
+- Open patient dashboards  
+- Mark patient evaluations  
+- View patient history  
+
+## 🎯 Goal Tracking Module
+- Add daily logs  
+- Update logs  
+- Delete logs  
+- Provider compliance checking  
+
+
+# 🧩 Authentication System (JWT + Refresh Token)
+
+### 🔐 Registration Fields
+- username
+- email
+- password
+- role → "patient" or "provider"
+
+### 🔑 Login Fields
+- email
+- password
+
+### 🎫 Tokens Issued
+- *Access Token* (short-lived)
+- *Refresh Token* (stored in DB)
+
+### 🔍 Middlewares
+| Middleware | Purpose |
+|------------|---------|
+| auth.middleware.js | Validate JWT token |
+
 
 ---
 
-## 👨‍⚕️ Provider Features
-- View assigned patients  
-- Check compliance status  
-- Access patient summaries  
-- Review goal progress  
+# 📚 API Routes Overview
+
+## 🔐 Auth Routes
+
+| Method | Endpoint              | Description |
+|--------|------------------------|-------------|
+| POST   | /auth/register       | Register user |
+| POST   | /auth/login          | Login user & return tokens |
+| POST   | /auth/logout         | Invalidate refresh token |
+| POST   | /auth/refresh-token  | Generate new access token |
 
 ---
 
-## 🌍 Public Pages
-- `/public/health-info`  
-- `/public/privacy-policy`  
+## 👤 Patient Routes
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /patient/profile     | Get profile |
+| PUT    | /patient/profile     | Update profile |
+| GET    | /patient/goals       | Get patient goals |
 
 ---
+
+## 🎯 Goal Routes
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST   | /goals          | Add goal log |
+| GET    | /goals/:id      | Get a goal |
+| PUT    | /goals/:id      | Update goal |
+| DELETE | /goals/:id      | Delete goal |
+
+---
+
+## 🧑‍⚕ Provider Routes
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /provider/patients            | List all patients |
+| GET    | /provider/patient/:id         | Patient dashboard |
+
+
+
+# 🗂 Modules Breakdown
+
+## 🔐 Authentication Module
+Files:
+src/controllers/auth.controller.js
+src/routes/auth.routes.js
+src/services/auth.service.js
+src/middleware/auth.middleware.js
+
+
+Handles:
+- Register
+- Login
+- Logout
+- Tokens
+- Role checks
+
+---
+
+## 👤 Patient Module
+
+Files:
+src/controllers/patient.controller.js
+src/routes/patient.routes.js
+src/services/patient.service.js
+src/models/Profile.model.js
+
+
+Features:
+- Profile CRUD
+- View progress
+
+---
+
+## 🧑‍⚕ Provider Module
+
+Files:
+src/controllers/provider.controller.js
+src/routes/provider.routes.js
+src/services/provider.service.js
+
+
+Features:
+- List patients
+- Patient dashboard
+- View compliance
+
+---
+
+## 🎯 Goal Module
+
+Files:
+src/models/Goal.model.js
+src/controllers/goal.controller.js
+src/routes/goal.routes.js
+src/services/goal.service.js
+
+
+Features:
+- CRUD for goals
+- Provider evaluation
 
